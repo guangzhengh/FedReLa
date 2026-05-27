@@ -1,11 +1,25 @@
-# FedReLa — release code (ETF & FedLoGe)
+# FedReLa
 
-Federated long-tailed learning with optional **FedReLa relabeling** (ETF) or **global realignment** (FedLoGe baseline only).
+Official implementation of **FedReLa: Imbalanced Federated Learning via Re-Labeling** (ICML 2026).
+
+## Acknowledgement
+
+This implementation is built on top of [FedLoGe](https://github.com/ZackZikaiXiao/FedLoGe.git).
+
+## Environment
+
+```bash
+conda create -n FedReLa python=3.10 -y
+conda activate FedReLa
+pip install -r requirements.txt
+```
+
+PyTorch 2.1.2 + CUDA 12.2 is pinned in our setup. If your CUDA/driver stack differs, install the matching PyTorch wheel first, then install the remaining dependencies from `requirements.txt`.
 
 ## Layout
 
 ```
-gith/
+FedReLa/
 ├── fed_etf.py, fedetf_100.py      # FedETF training
 ├── fedloge.py, fedloge_100.py      # FedLoGe training
 ├── realignment.py, realignment_100.py  # post-hoc realign (baseline only)
@@ -17,7 +31,9 @@ gith/
 
 Checkpoints: `./output/cifar10/` or `./output/cifar100/`. Logs: `./output/logs/`.
 
-Place CIFAR under `./cifar_lt/` (see `util/dataset.py`). Download via torchvision on first run.
+## Dataset
+
+No manual preprocessing is required. CIFAR-10/CIFAR-100 are downloaded by TorchVision to `./cifar_lt/` at runtime (see `util/dataset.py`).
 
 ## Conventions
 
