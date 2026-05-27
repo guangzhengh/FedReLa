@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+output/
+temp/
+*.pdf
+*.pth
+*.slurm
+slurm-*.out
+cifar_lt/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
